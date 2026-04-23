@@ -1,9 +1,6 @@
 ---
 name: lennys-podcast-newsletter
-description: |
-  Lenny Rachitsky 播客与 Newsletter 知识库。搜索、阅读、学习 Lenny 的 638 篇内容（289 播客转录 + 349 篇 Newsletter）。
-  涵盖产品管理、增长、设计、工程、AI、创业、领导力等 17 个主题。
-  触发词：Lenny、Lenny's Newsletter、Lenny's Podcast、"Lenny 怎么说"、"Lenny 有没有聊过"。
+description: "Lenny Rachitsky 播客与 Newsletter 知识库。搜索、阅读、学习 Lenny 的 638 篇内容（289 播客转录 + 349 篇 Newsletter）。涵盖产品管理、增长、设计、工程、AI、创业、领导力等 17 个主题。触发词：Lenny、Lenny's Newsletter、Lenny's Podcast、'Lenny 怎么说'、'Lenny 有没有聊过'。"
 ---
 
 # Lenny's Podcast & Newsletter 知识库
@@ -15,8 +12,6 @@ description: |
 - **289 篇播客转录**：硅谷顶级产品人访谈（完整对话逐字稿）
 - **349 篇 Newsletter**：产品管理、增长、职业发展深度文章
 - **17 个主题标签**：design, leadership, strategy, growth, startups, career, product-management, b2b, engineering, b2c, ai, analytics, go-to-market 等
-- **289 位嘉宾**：包括 Brian Chesky, Satya Nadella, Lenny 本人等
-- **数据来源**：[lennysdata.com](https://www.lennysdata.com)
 
 ## 数据路径（自包含在 skill 内）
 
@@ -90,20 +85,21 @@ python3 $SCRIPT stats
 ### 用户提问关于 Lenny 内容时
 
 1. **理解意图**：判断用户想查什么（某个主题、某位嘉宾、某个概念）
-2. **搜索**：先用 `search` 快速匹配，找不到再用 `fulltext` 全文搜索
-3. **阅读原文**：用 `read` 读取相关文件，理解完整上下文
-4. **回答**：基于原文内容回答用户问题，引用具体来源（嘉宾名 + 文章标题）
+2. **搜索**：先用 `search` 快速匹配
+3. **若无结果**：改用 `fulltext` 全文搜索。若仍无结果，告知用户该主题在知识库中未找到匹配内容
+4. **阅读原文**：用 `read` 读取相关文件，理解完整上下文。若文件路径无效，用 `search` 重新定位正确路径
+5. **回答**：基于原文内容回答用户问题，引用具体来源（嘉宾名 + 文章标题）
 
 ### 用户想学习某个主题时
 
-1. 用 `search "" --tag TAG` 列出该主题所有内容
+1. 用 `search "" --tag TAG` 列出该主题所有内容。若 tag 无匹配，用 `tags` 命令查看可用标签并推荐最接近的
 2. 推荐 3-5 篇最相关的文章/播客
 3. 读取并总结关键观点
 4. 如果用户想深入，读取完整内容详细讲解
 
 ### 用户想了解某位嘉宾的观点时
 
-1. 用 `search "嘉宾名"` 或 `guests` 找到对应播客
+1. 用 `search "嘉宾名"` 找到对应播客。若无结果，用 `guests` 列表确认嘉宾姓名拼写
 2. 读取播客转录
 3. 提炼嘉宾的核心观点和金句
 
